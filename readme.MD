@@ -7,16 +7,27 @@ I will be doing web scraping from Wikipedia.
 For scraping the web, I'll be using Scrapy, it was recommended by many sources and it was referred as a library that holds your hand and can be very helpful for someone that doesn't have that much experience over python, so, I think it's a good starting point
 
 # Important Steps Documented
-1. Before I did anything, I had to do the pip install scrapy 
-2. In order to start the project I had to use scrapy startproject "projectName", in my case the name of my project was willywonka
-3. Now what we have to do is generate the spider that is going to crawl through our website, there are many types of spiders, being the spider the most basic and common type, the other to are the CrawlSpider and the SitemapSpider. 
-scrapy genspider willyspider chocolate.co.uk
-4. Place the generated spider in the /spiders folder
-5. Initially, the start_urls contained a url that wasn't the correct one, you need to place the correct url in that list, not forgetting to put the https specification and the whole endpoint.
-6. We will use the scrapy shell to generate the CSS Selectors that we will use to scrape the contents of the web page, also, to open the scrapy shell we use "scrapy shell"
-7. If you're going to use ipython then you need to specify in the scrapy.cfg that the shell = ipython
-8. Fetch the page (This will automatically save it in the response variable): fetch('https://www.chocolate.co.uk/collections/all')
-9. Now we'll inspect the page manually (in our browser) and right click on an item, then, we will use the inspect element option
+## Install Scrapy
+Before you do anything you need to install Scrapy. 
+## Start your Project
+In order to start the project I had to use scrapy startproject "projectName", in my case the name of my project was willywonka
+## Generate The Spider that Will Crawl the Website
+There are many types of spiders, being the spider the most basic and common type, the other to are the CrawlSpider and the SitemapSpider. 
+To generate a spider you'll type 'scrapy genspider willyspider website.com' on your terminal an example would be 'scrapy genspider willyspider chocolate.co.uk'
+### Spider Note
+If you weren't in your project folder, you'll need to place the generated spider in the /spiders folder which will be found inside a __init__.py file
+## Repair the start_urls list, placing the correct link with all the necessary information
+Initially, the start_urls contained a url that wasn't the correct one, you need to place the correct url in that list, not forgetting to put the https specification and the whole endpoint.
+## Open the Scrapy Shell and start testing your CSS Selectors
+6. We will use the scrapy shell to generate the CSS Selectors that we will use to scrape the contents of the web page with our spider.
+To open the scrapy shell we use "scrapy shell"
+### Scrapy Shell Note
+If you're going to use ipython then you need to specify in the scrapy.cfg that the shell = ipython
+Also, ipython won't be installed by default in your virtual environment, you need to install it.
+## Fetch the Page inside the Scrapy Shell
+Fetch the page (This will automatically save it in the response variable) example: fetch('https://www.chocolate.co.uk/collections/all')
+## Inspect the Page in your Browser
+Now we'll inspect the page manually (in our browser) and right click on an item, then, we will use the inspect element option
 10. We find that all the elements in the page have their own custom element (product-item) in the html, we can then use this to extract them into our spider, using the response variable which is housing the html of the studied page, we can now place all the elements in an object. 
 response.css('product-item') for every item
 response.css('product-item).get() for only the first item
