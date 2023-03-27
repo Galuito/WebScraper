@@ -6,8 +6,13 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+from scrapy.exceptions import DropItem
 
-
-class SalecheckerPipeline:
+class PriceCleanerPipeline:
     def process_item(self, item, spider):
-        return item
+        adapter = ItemAdapter(item)
+        if adapter.get('price'):
+            adapter['price'] = adapter['price'].split('$')[1]
+            return item
+        else:
+            raise DropItem(f"Missing price in {item}")
