@@ -10,4 +10,6 @@ class SteamGame(scrapy.Item):
     # define the fields for your item here like:
     name = scrapy.Field()
     price = scrapy.Field()
+    currency = scrapy.Field()
     url = scrapy.Field()
+    onSale = scrapy.Field()

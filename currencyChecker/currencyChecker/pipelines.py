@@ -6,16 +6,12 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from scrapy.exceptions import DropItem
 
-#I did the pipeline job in the itemloaders
-class PriceCleanerPipeline:
+
+class CurrencyConverterPipeline:
     def process_item(self, item, spider):
         adapter = ItemAdapter(item)
-        if adapter.get('price'):
-            # adapter['price'] = adapter['price'].replace('\n\t\t\t\t\t\t\t$', '')
-            # adapter['price'] = float(adapter['price'])
-
+        if(adapter.get('currency_to_bss')):
+            adapter['currency_to_bss'] = adapter['currency_to_bss'].replace(',', '.')
+            adapter['currency_to_bss'] = float(adapter['currency_to_bss'])
             return item
-        else:
-            raise DropItem(f"Missing price in {item}")

@@ -1,4 +1,4 @@
-# Scrapy settings for saleChecker project
+# Scrapy settings for currencyChecker project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,17 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+BOT_NAME = "currencyChecker"
 
-
-BOT_NAME = "saleChecker"
-
-SPIDER_MODULES = ["saleChecker.spiders"]
-NEWSPIDER_MODULE = "saleChecker.spiders"
+SPIDER_MODULES = ["currencyChecker.spiders"]
+NEWSPIDER_MODULE = "currencyChecker.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "saleChecker (+http://www.yourdomain.com)"
+#USER_AGENT = "currencyChecker (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -48,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "saleChecker.middlewares.SalecheckerSpiderMiddleware": 543,
+#    "currencyChecker.middlewares.CurrencycheckerSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "saleChecker.middlewares.SalecheckerDownloaderMiddleware": 543,
+#    "currencyChecker.middlewares.CurrencycheckerDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -65,9 +62,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    "saleChecker.pipelines.PriceCleanerPipeline": 100,
-# }
+ITEM_PIPELINES = {
+   "currencyChecker.pipelines.CurrencyConverterPipeline": 100,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

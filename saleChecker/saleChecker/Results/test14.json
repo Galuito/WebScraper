@@ -1,0 +1,13 @@
+[
+{"name": "Enter the Gungeon", "onSale": "NO", "currency": "USD", "price": "14.99", "url": "https://store.steampowered.com/app/311690/Enter_the_Gungeon/"},
+{"name": "Dead Cells", "onSale": "NO", "currency": "USD", "price": "24.99", "url": "https://store.steampowered.com/app/588650/Dead_Cells/"},
+{"name": "Hollow Knight", "onSale": "NO", "currency": "USD", "price": "14.99", "url": "https://store.steampowered.com/app/367520/Hollow_Knight/"},
+{"name": "Project Zomboid", "onSale": "NO", "currency": "USD", "price": "19.99", "url": "https://store.steampowered.com/app/108600/Project_Zomboid/"},
+{"name": "ENDER LILIES", "onSale": "YES", "currency": "USD", "price": "13.74", "url": "https://store.steampowered.com/app/1369630/ENDER_LILIES_Quietus_of_the_Knights/"},
+{"name": "Undertale", "onSale": "NO", "currency": "USD", "price": "9.99", "url": "https://store.steampowered.com/app/391540/Undertale/"},
+{"name": "Portal", "onSale": "NO", "currency": "USD", "price": "9.99", "url": "https://store.steampowered.com/app/400/Portal/"},
+{"name": "Celeste", "onSale": "YES", "currency": "USD", "price": "4.99", "url": "https://store.steampowered.com/app/504230/Celeste/"},
+{"name": "Deflector", "onSale": "YES", "currency": "USD", "price": "13.99", "url": "https://store.steampowered.com/app/1736550/Deflector/"},
+{"name": "Overcooked! All You Can Eat", "onSale": "YES", "currency": "USD", "price": "19.99", "url": "https://store.steampowered.com/app/1243830/Overcooked_All_You_Can_Eat"},
+{"name": "Terraria", "onSale": "NO", "currency": "USD", "price": "9.99", "url": "https://store.steampowered.com/app/105600/Terraria/"}
+]

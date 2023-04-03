@@ -4,12 +4,12 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-from scrapy.http import Request
+
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
 
-class SalecheckerSpiderMiddleware:
+class CurrencycheckerSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -49,25 +49,14 @@ class SalecheckerSpiderMiddleware:
         # that it doesn’t have a response associated.
 
         # Must return only requests (not items).
-        """ESTE ES EL start requests viejo"""
-        # for r in start_requests:
-        #     yield r
-        
-        """Este es el start requests nuevo que deberia manejar cookies"""
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36'}
-        for i,url in enumerate(self.start_urls):
-            yield Request(url,cookies={'birthtime': '283993201', 'mature_content': '1'}, callback=self.parse_item, headers=headers)
-
-    # def start_requests(self):
-    #     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36'}
-    #     for i,url in enumerate(self.start_urls):
-    #         yield Request(url,cookies={'birthtime': '283993201', 'mature_content': '1'}, callback=self.parse_item, headers=headers)
+        for r in start_requests:
+            yield r
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class SalecheckerDownloaderMiddleware:
+class CurrencycheckerDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.

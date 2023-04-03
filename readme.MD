@@ -6,57 +6,37 @@ I will be doing web scraping from Wikipedia.
 # Used Library
 For scraping the web, I'll be using Scrapy, it was recommended by many sources and it was referred as a library that holds your hand and can be very helpful for someone that doesn't have that much experience over python, so, I think it's a good starting point
 
-# Important Steps Documented
-## 1. Install Scrapy
-Before you do anything you need to install Scrapy. 
-## 2. Start your Project
-In order to start the project I had to use scrapy startproject "projectName", in my case the name of my project was willywonka
-## 3. Generate The Spider that Will Crawl the Website
-There are many types of spiders, being the spider the most basic and common type, the other to are the CrawlSpider and the SitemapSpider. 
-To generate a spider you'll type 'scrapy genspider willyspider website.com' on your terminal an example would be 'scrapy genspider willyspider chocolate.co.uk'
-### 3.1 Spider Note
-If you weren't in your project folder, you'll need to place the generated spider in the /spiders folder which will be found inside a __init__.py file
-## 4. Repair the start_urls list, placing the correct link with all the necessary information
-Initially, the start_urls contained a url that wasn't the correct one, you need to place the correct url in that list, not forgetting to put the https specification and the whole endpoint.
-## 5. Open the Scrapy Shell and start testing your CSS Selectors
-We will use the scrapy shell to generate the CSS Selectors that we will use to scrape the contents of the web page with our spider.
-To open the scrapy shell we use "scrapy shell"
-### 5.1 Scrapy Shell Note
-If you're going to use ipython then you need to specify in the scrapy.cfg that the shell = ipython
-Also, ipython won't be installed by default in your virtual environment, you need to install it.
-## 6. Fetch the Page inside the Scrapy Shell
-Fetch the page (This will automatically save it in the response variable) example: fetch('https://www.chocolate.co.uk/collections/all')
-## 7. Inspect the Page in your Browser
-Now we'll inspect the page manually (in our browser) and right click on an item, then, we will use the inspect element option, try to find if elements share a custom element or have a common denominator between the targets that you're interested in
-### 7.1 Chocolate Example
-We find that all the elements in the page have their own custom element (product-item) in the html, we can then use this to extract them into our spider, using the response variable which is housing the html of the studied page, we can now place all the elements in an object. 
-#### response.css('product-item') for every item
-#### response.css('product-item).get() for only the first item
-## 8. Specify the data that you're interested in from those elements
-Now we're going to get the information that we want out of these elements, specifically we want, names, prices and urls of each product
-### 8.1 Getting the Names
-To get the name all that you have to do is product.css('a.product-item-meta__title::text').get() 
-### 8.2 Getting the Prices
-To get the price is product.css('span.price').get().replace('<span class="price">\n              <span class="visually-hidden">Sale price</span>', '').replace('</span>', '')
-### 8.3 Getting the URLs
-To get the URL is product.css('a.product-item-meta__title::attr(href)').extract()
-You can also do product.css('a.product-item-meta__title').attrib['href']
-The latter seems more user friendly, needing to specify the SPECIFIC anchor selector and then asking for its href
-## 9. Define the Parsing Function of your Spider
-Once we have all of this then we need to go to our created spider and define the parsing function, once we do this we run the spider
-## 10. Run your Spider
-scrapy crawl "spiderName" in this case scrapy crawl willyspider 
-## 11. Save The Scraped Data
-In order to save this data we need to use de -O option, then we specify the file in which the data is going to be saved, this can be a json file or a CSV file
-scrapy crawl willyspider -O chocolateData.json
-scrapy crawl willyspider -O chocolateData.csv
-The data will be saved in the main directory in which the project is located in
-
+# General Documentation
+This is the summary of what you have to do in order to make this work, also, there are some things which I didn't explain when doing my first example so I'll add those in here.
+1. Install scrapy in your virtual environment
+2. Create your scrapy project with 'scrapy startproject "projectName"'
+3. Change your directory into the folder that you just created and create your spider 'scrapy genspider "name" "website.com.xy"'
+## Remember to put the https in the start_urls
+4. Place all the urls that you plan to visit inside of the start_urls variable
+5. Open the scrapy shell through your terminal and test your css selectors 'scrapy shell'
+## First, fetch your url 'fetch("https://exampleurl.com.uk")'
+## Then, use the response.css('css .class/element/#id') to apply and check values
+### Remember to use the .get() function and the ::text option like the following .css(a::text)
+## Inspect the page in your browser in order to get the classes, ids and html element types
+6. After you have what you want create your item inside of your items.py file
+## Create a variable for each of the fields in the item that you're going to create per yield
+7. Create your item loader taking into consideration the fields of your item, in here you can define the variable_in MapCompose function in which you can create a small pipeline that allows you to process certain data types through the use of a lambda function, if you want to do big changes you should do them in the pipelines.
+## You have to import your item loader from your project like from project.itemloaders import ClassLoader
+### The itemloader.py file doesn't come by default you need to create it
+8. Handle your parsing logic inside of the parse function and think if you're going to use many items inside of different links or many items inside of the same page, the first example can be found in saleChecker the former can be found in currencyChecker
+9. Once you are done try crawling your spider with 'scrapy crawl "spider_name"'
+## If you want to save the values that you receive which you'll probably want to then you have to place -O "fileName.xxx" at the end of your crawl command, xxx can be json, css, and other useful file types
+### I recommend placing your results inside of a results folder like so -O project/results/result_X.json
+10. Start debugging your values until you get the desired raw data, don't try to process it yet, check that everything works before that, you could also avoid doing processing in your item loader to check that everything works before causing an error too soon.
+11. Once every value works if you need you can create a Pipeline inside of pipelines.py file, once you create it and integrate it throughout the use of the item that you created in your itemloader, this can be used to modify strings, numeric values that couldn't be done or would be too problematic in previous steps.
+## Even if you create a pipeline you need to activate it in the settings.py file, pipelines are inside of the ITEM_PIPELINES dictionary, in which they have a numeric value, this value can go from 1 to 1000 and is the one that specifies which pipeline goes first and which pipeline goes last (from small numbers to big numbers)
+12. If you need to change how the predefined functions work you can do it inside of the middleware.py file, in this you can modify the request method and manage cookies and so much more.
 
 
 # Notes
 Once we create the Scrapy project many folders and files are generated, some of those files have important functionalities, here are some of them.
 
+itemloaders.py
 settings.py
 items.py
 pipelines.py
