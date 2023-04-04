@@ -26,10 +26,11 @@ class SalespiderSpider(scrapy.Spider):
                    "1736550/Deflector/",
                    "2050650/Resident_Evil_4/",
                    "105600/Terraria/",
-                   "211820/Starbound/"
+                   "211820/Starbound/",
+                   "413150/Stardew_Valley/",
+                   "599140/Graveyard_Keeper/",
+                   "247080/Crypt_of_the_NecroDancer/"
                    ]
-    
-    # gameDomains = ["2050650/"]
 
     #Base URL which I'll be appending the specific games to
     url = "https://store.steampowered.com/app/"
