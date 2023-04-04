@@ -4,7 +4,8 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-from scrapy.http import Request
+from scrapy import Request
+# from scrapy.http import Request
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
@@ -53,15 +54,16 @@ class SalecheckerSpiderMiddleware:
         # for r in start_requests:
         #     yield r
         
-        """Este es el start requests nuevo que deberia manejar cookies"""
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36'}
-        for i,url in enumerate(self.start_urls):
-            yield Request(url,cookies={'birthtime': '283993201', 'mature_content': '1'}, callback=self.parse_item, headers=headers)
+        # """Este es el start requests nuevo que deberia manejar cookies"""
+        # headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36'}
+        # for i,url in enumerate(self.start_urls):
+        #     yield Request(url,cookies={'birthtime': '1008392401', 'lastagecheckage': '15-0-2002'}, callback=self.parse_item, headers=headers)
 
     # def start_requests(self):
     #     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36'}
     #     for i,url in enumerate(self.start_urls):
-    #         yield Request(url,cookies={'birthtime': '283993201', 'mature_content': '1'}, callback=self.parse_item, headers=headers)
+    #         yield None
+    #         # yield Request(url,cookies={'birthtime': '1008392401', 'mature_content': '1', 'lastagecheckage': '15-0-2002'}, callback=self.parse_item, headers=headers)
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)

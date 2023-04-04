@@ -25,7 +25,8 @@ class SalespiderSpider(scrapy.Spider):
                    "504230/Celeste/",
                    "1736550/Deflector/",
                    "2050650/Resident_Evil_4/",
-                   "105600/Terraria/"
+                   "105600/Terraria/",
+                   "211820/Starbound/"
                    ]
     
     # gameDomains = ["2050650/"]
@@ -37,11 +38,18 @@ class SalespiderSpider(scrapy.Spider):
         #Filling the start urls list with said URLs that are going to be scraped
         start_urls.append(url + x)
 
+    def start_requests(self):
+        cookies = {'birthtime': '1008392401', 'lastagecheckage':'15-2-2002'}
+        for eachURL in self.start_urls:
+            yield scrapy.Request(url = eachURL, cookies = cookies, callback = self.parse)
+        
+        # return super().start_requests()
+
     def parse(self, response):
         #We define the Item Loader, with its own item (SteamGame) and from where it'll be getting its contents (response)
         # if(False):
 
-        buyBox = response.css('div.game_area_purchase_game')
+        buyBox = response.css('div.game_area_purchase_game_wrapper')
         # if(response.css('div.discount_final_price::text')):
         if(buyBox[0].css('div.discount_final_price::text')):
             steamGame = SteamGameLoader(item = SteamGame(), selector = buyBox)
