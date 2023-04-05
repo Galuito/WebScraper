@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Motiva Sans Regular';
+  src: url('path/to/motiva-sans-regular.woff2') format('woff2'),
+       url('path/to/motiva-sans-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  scrollbar-color: #1c1c1c #555;
+  /* first is bar color and second is background color */
+}
+
+nav {
+  background-color: #171A21;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 85px;
+}
+
+nav h1{
+  color: #C5C3C0;
+  display: inline-block;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+li {
+  font-size: 14px;
+  display: inline-block;
+  font-family: 'Motiva Sans Regular', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: #B5B6B8;
+  text-decoration: none;
+  padding: 10px;
+}
+
+a:hover {
+  color: #FFFFFF;
+}
+
+#user-options{
+  align-self: flex-start;
+}
+
+#user-options li{
+  font-size: 0.8em;
+}
+
+#boton-verde{
+  background-color: #5C7E10;
+  color: #FFFFFF;
+  padding: 5px 10px;
+}
+
+#logo{
+  padding-left: 220px;
+}
+
+#cuerpo{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  /* height: 200VH; */
+  width: 100VW;
+  background-image: linear-gradient(45deg, #1A2939, #1B2838);
+}

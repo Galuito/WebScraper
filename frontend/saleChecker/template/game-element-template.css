@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Motiva Sans Regular';
+  src: url('path/to/motiva-sans-regular.woff2') format('woff2'),
+       url('path/to/motiva-sans-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.cuadrado{
+  /* border: 2px solid blue; */
+  width: 70VW;
+  height: 20VH;
+  background-color: #3C4C5D;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cuadrado a{
+  font-family: 'Motiva Sans Regular', sans-serif;
+  text-decoration: none;
+  color: #F1F2F3;
+}
+
+.cuadrado a:visited{
+  color:#F1F2F3
+}
+
+.cuadradito{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-start;
+  height: 90%;
+  width: 30%;
+  border: 2px solid gray;
+}
+
+#name{
+  align-self: flex-start;
+  font-size: 22px;
+  font-weight: 400;
+  width: 25%;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+#image-placeholder{
+  justify-self: flex-start;
+}
+
+#oferta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Motiva Sans Thin', sans-serif;
+  padding: 0px 2px;
+  /* background-color: #b90505;
+  background-color: #72b415; */
+  width: 12%;
+}
+
+#prycr{
+  font-family: 'Motiva Sans Thin', sans-serif;
+  padding: 0px 2px;
+  background-color: #303D4A;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

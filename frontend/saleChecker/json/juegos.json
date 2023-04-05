@@ -1,0 +1,17 @@
+[
+{"name": "Enter the Gungeon", "onSale": "NO", "currency": "USD", "price": 14.99, "url": "https://store.steampowered.com/app/311690/Enter_the_Gungeon/"},
+{"name": "Undertale", "onSale": "NO", "currency": "USD", "price": 9.99, "url": "https://store.steampowered.com/app/391540/Undertale/"},
+{"name": "Hollow Knight", "onSale": "NO", "currency": "USD", "price": 14.99, "url": "https://store.steampowered.com/app/367520/Hollow_Knight/"},
+{"name": "Project Zomboid", "onSale": "NO", "currency": "USD", "price": 19.99, "url": "https://store.steampowered.com/app/108600/Project_Zomboid/"},
+{"name": "Portal", "onSale": "NO", "currency": "USD", "price": 9.99, "url": "https://store.steampowered.com/app/400/Portal/"},
+{"name": "Dead Cells", "onSale": "NO", "currency": "USD", "price": 24.99, "url": "https://store.steampowered.com/app/588650/Dead_Cells/"},
+{"name": "ENDER LILIES", "onSale": "NO", "currency": "USD", "price": 24.99, "url": "https://store.steampowered.com/app/1369630/ENDER_LILIES_Quietus_of_the_Knights/"},
+{"name": "Celeste", "onSale": "NO", "currency": "USD", "price": 19.99, "url": "https://store.steampowered.com/app/504230/Celeste/"},
+{"name": "Deflector", "onSale": "NO", "currency": "USD", "price": 19.99, "url": "https://store.steampowered.com/app/1736550/Deflector/"},
+{"name": "Starbound", "onSale": "YES", "currency": "USD", "price": 5.99, "url": "https://store.steampowered.com/app/211820/Starbound/"},
+{"name": "Terraria", "onSale": "NO", "currency": "USD", "price": 9.99, "url": "https://store.steampowered.com/app/105600/Terraria/"},
+{"name": "Resident Evil 4", "onSale": "NO", "currency": "USD", "price": 59.99, "url": "https://store.steampowered.com/app/2050650/Resident_Evil_4/"},
+{"name": "Stardew Valley", "onSale": "NO", "currency": "USD", "price": 14.99, "url": "https://store.steampowered.com/app/413150/Stardew_Valley/"},
+{"name": "Crypt of the NecroDancer", "onSale": "NO", "currency": "USD", "price": 14.99, "url": "https://store.steampowered.com/app/247080/Crypt_of_the_NecroDancer/"},
+{"name": "Graveyard Keeper", "onSale": "NO", "currency": "USD", "price": 19.99, "url": "https://store.steampowered.com/app/599140/Graveyard_Keeper/"}
+]
