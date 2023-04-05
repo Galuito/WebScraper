@@ -68,3 +68,5 @@ It was very easy, all you need to do is stand over the top of the html that pops
 
 # Small problem when working in VS Code
 Once you create your Scrapy Project, you'll need to cd into the folder in which you're going to be working on, this can be easily done by typing cd 'projectFolder' in your terminal, this can solve many problems and will allow your terminal to have access to your spiders, if you try to crawl your spiders without being in said folder your code won't be able to run
+
+## This project was finished on April 4th of 2023
